@@ -1,0 +1,137 @@
+#eservice-container {
+    background: none !important;
+    border: 0px !important;
+    font-family: "Droid Arabic Kufi", 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5;
+}
+
+.jumbotron .title-public {
+    font-size: 16px !important;
+    font-weight: bold;
+    padding: 0 30px;
+}
+
+.jumbotron p {
+	font-size: 14px !important;
+}
+
+.ltr .jumbotron p {
+    text-align: left !important;
+}
+
+.rtl .jumbotron p {
+    text-align: right !important;
+}
+
+.after-login-side {
+    display: none !important;
+}
+
+div.col-md-9.right-side:nth-child(2) {
+    display: none !important;
+}
+
+.ug-list li {
+    color: #00b76d;
+    float: left;
+    width: 33%;
+}
+
+/*.sidenav {
+    margin: 0px;
+    padding: 0px;
+}*/
+
+ul.userGuideleftStyle {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+ul.userGuideleftStyle li a,
+ul.userGuideleftStyle li a:link,
+ul.userGuideleftStyle li a:active,
+ul.userGuideleftStyle li a:visited {
+    background-color: #fff;
+    border-bottom: 1px solid #cdcdcd;
+    border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+    color: #666 !important;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px !important;
+    padding: 0 10px;
+    position: relative;
+    text-decoration: none;
+}
+
+ul.userGuideleftStyle li a:hover {
+    background-color: #e8e8e8 !important;
+}
+
+ul.userGuideleftStyle li a:hover:after {    
+	color: #fff !important;
+    content: "\e846";
+    font-family: "fontello",Arial;
+    font-size: 24px;
+    font-weight: normal;
+    position: absolute;
+    right: 16px;
+    top: 50%;    
+    transform: translateY(-50%);
+}
+
+ul.userGuideleftStyle li.selected-guide a {
+    background-color: #00b76d !important;
+    color: #fff !important;
+}
+
+.content-title {
+    font-size: 18px;
+}
+
+.content-nav {
+    padding: 30px;
+}
+
+.toc {}
+
+.toc>li {}
+
+.toc>li.selected-guide a {}
+
+.toc>li>a {}
+
+div.service-purpose {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.service-requirements {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.Service-target-users {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.service-conditions {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.serice-fee {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.service-notes {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#eservice-container td {
+    vertical-align: top;
+}

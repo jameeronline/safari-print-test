@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ltr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/cairo-fonts.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style type="text/css">
+    body {
+        font-size: 14px;
+        font-family: 'Cairo', 'Roboto', sans-serif;
+            counter-reset: page 1;
+    }
+
+    .print-container {
+        width: 100%;
+        border-collapse: collapse !important;
+    }
+
+    @media print {
+
+        body {
+            /*background-image: url(images/bg-left.png), url(images/bg-right.png) !important;
+            background-repeat: no-repeat, no-repeat !important;
+            background-position: left top, right top !important;
+            background-attachment: fixed. fixed;
+            background-size: 100%. 100%;*/
+        }
+
+        @page {
+            size: portrait;
+            margin: 0;
+            background-color: red;
+        }
+
+        @page {
+            @top-right {
+                content: "Page "counter(page) " of "counter(pages);
+            }
+        }
+
+        .container {
+            width: auto !important;
+            max-width: none !important;
+        }
+
+        .print-content {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .print-content table.table {
+            page-break-after: auto;
+        }
+
+        .print-content .table tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        .print-content .table td {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        .print-content .table thead {
+            display: table-header-group;
+        }
+
+        .print-content .table tfoot {
+            display: table-footer-group
+        }
+
+        .print-container h4 {
+            color: #fff !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            padding: 9px 18px;
+            background-color: #00ab67 !important;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            height: 160px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            border: none !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        .page-header-space {
+            height: 160px;
+        }
+
+        .page-header .bg-image-holder {
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            top: -12px;
+            bottom: 0;
+            background-image: url(images/bg-left.png), url(images/bg-right.png) !important;
+            background-repeat: no-repeat, no-repeat !important;
+            background-position: left top, right top !important;
+            background-attachment: fixed. fixed;
+            background-size: 100%. 100%;
+        }
+
+        .page-header img {
+            height: 80px;
+        }
+
+        .page-header h4 {
+            font-size: 20px !important;
+            font-weight: bold;
+            color: #00ab67 !important;
+            border: none !important;
+        }
+
+        .page-header span {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .page-header .table * {
+            border: none !important;
+            background: transparent !important;
+        }
+
+        .page-header .table td {
+            vertical-align: middle !important;
+        }
+
+        .page-header .table td:first-child,
+        .page-header .table td:last-child {
+            width: 230px;
+        }
+
+        .page-header .print-photo-wrapper {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #000 !important;
+        }
+
+        .ltr .page-header .print-photo-wrapper {
+            float: right;
+        }
+
+        .rtl .page-header .print-photo-wrapper {
+            float: left;
+        }
+
+        .print-block-single ul.list-inline {
+            margin-bottom: 0 !important;
+            display: flex;
+        }
+
+        .print-block-single ul.list-inline>li {
+            flex: 1;
+        }
+
+        .print-block-single li>label,
+        .print-block-single li>span {
+            display: inline-block;
+            padding: 4px;
+            margin-bottom: 0 !important;
+        }
+
+        .print-block-single li>span {
+            font-weight: normal !important;
+        }
+
+        .print-container-block {
+            padding: 9px;
+            font-size: 14px !important;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+
+        .page-footer,
+        .page-footer-space {
+            height: 50px;
+        }
+
+        .page-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            border-top: 1px solid transparent !important;
+            padding: 0 20px;
+            background-color: #00ab67 !important;
+        }
+
+        .page-footer:after {
+            content: "Counter "counter(page)". ";
+        }
+
+        .page-footer-wrapper {
+            font-weight: bold !important;
+            font-size: 16px !important;
+            padding: 9px 18px;
+            background-color: #00ab67 !important;
+        }
+
+        .page-footer-wrapper ul {
+            margin: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .page-footer-wrapper ul li {
+            color: #fff !important;
+        }
+
+        .page-footer-wrapper ul li img {
+            width: 32px;
+            margin: 0 12px;
+        }
+
+        .print-container-block--table,
+        .print-container-block--table th,
+        .print-container-block--table td {
+            border: 1px solid #000 !important;
+        }
+
+        .print-container-block--table th,
+        .print-container-block--table td {
+            padding: 8px 12px !important;
+        }
+
+        .print-container-block--table .table th {
+            background-color: #eee !important;
+        }
+
+        .page-number {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 50px;
+            height: 50px;
+            z-index: 100;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            right: 50px;
+        }
+
+        .page-number:after {
+            content: counter(page);
+            color: white !important;
+        }
+
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="counter-list">
+        <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, ab.</li>
+        <li>Quidem sapiente dicta, nisi mollitia minus itaque rem nemo porro!</li>
+        <li>Reprehenderit optio blanditiis consectetur dolore magnam, odit, sapiente amet aliquid.</li>
+        <li>Illo, non odio quidem excepturi quia magnam libero veniam odit!</li>
+        <li>Quibusdam, dolorem, quos? Sed suscipit consectetur, reiciendis maxime illum dignissimos?</li>
+        <li>Error voluptatum dignissimos provident voluptate saepe in eaque recusandae asperiores.</li>
+        <li>Aperiam veniam, aliquid non natus debitis eveniet facere molestias, soluta.</li>
+        <li>Beatae perferendis dignissimos est, mollitia atque, delectus asperiores quibusdam culpa.</li>
+        <li>Ipsa sit ipsam suscipit dolorem quia nemo aliquid aut, quo!</li>
+        <li>Voluptatum iusto quasi quaerat doloremque explicabo facilis dolore dignissimos quam.</li>
+    </ul>
+    <div class="container">
+        <div class="print-content">
+            <!-- Page print header -->
+            <h4>Personal Data العربية </h4>
+            <div class="print-container-block">
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>ID Number:</label><span>1129184279</span></li>
+                        <li><label>First Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>ID Number:</label><span>1129184279</span></li>
+                        <li><label>First Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+            </div>
+            <h4>Personal Information العربية </h4>
+            <div class="print-container-block">
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                        <li><label>Add Label:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+            </div>
+            <h4>Fathers Information العربية </h4>
+            <div class="print-container-block">
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>ID Number:</label><span>1129184279</span></li>
+                        <li><label>First Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>ID Number:</label><span>1129184279</span></li>
+                        <li><label>First Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+            </div>
+            <h4>Mothers Information العربية </h4>
+            <div class="print-container-block">
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>ID Number:</label><span>1129184279</span></li>
+                        <li><label>First Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+                <div class="print-block-single">
+                    <ul class="list-inline">
+                        <li><label>ID Number:</label><span>1129184279</span></li>
+                        <li><label>First Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                        <li><label>Last Name:</label><span>Add Value</span></li>
+                    </ul>
+                </div>
+            </div>
+            <h4>Family Members Details العربية </h4>
+            <table class="table table-bordered print-container-block--table">
+                <thead>
+                    <tr>
+                        <th>ID Number</th>
+                        <th>Relationship</th>
+                        <th>First Name</th>
+                        <th>Date of Birth</th>
+                        <th>Place of Birth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                    <tr>
+                        <td>content 01</td>
+                        <td>content 02</td>
+                        <td>content 03</td>
+                        <td>content 04</td>
+                        <td>content 05</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Repeated Page Footer -->
+        <div class="page-footer">
+            <div class="page-number"></div>
+        </div>
+    </div>
+</body>
+
+</html>
