@@ -15,6 +15,8 @@
     .print-container {
         width: 100%;
         border-collapse: collapse !important;
+			color-adjust: exact !important;
+			-webkit-print-color-adjust: exact !important;
     }
 
     @media print {
@@ -49,6 +51,7 @@
 			color-adjust: exact !important;
 			-webkit-print-color-adjust: exact !important;
         }
+		
 
         .print-content table.table {
             page-break-after: auto;
