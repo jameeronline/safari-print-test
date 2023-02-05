@@ -78,7 +78,7 @@
             display: flex;
             align-items: center;
             margin: 0;
-            height: 160px;
+            height: 200px;
             margin-top: 12px;
             margin-bottom: 12px;
             border: none !important;
@@ -91,7 +91,7 @@
         }
 
         .page-header-space {
-            height: 160px;
+            height: 220px;
         }
 
         .page-header .bg-image-holder {
@@ -108,7 +108,7 @@
             background-size: 100%. 100%;
         }
 
-        .page-header img {
+        .page-header img:not(figure img) {
             height: 80px;
         }
 
@@ -183,6 +183,7 @@
         .page-footer,
         .page-footer-space {
             height: 50px;
+            display: none !important;
         }
 
         .page-footer {
@@ -689,7 +690,14 @@
                         <td>
                             <div class="text-center">
                                 <h4>Citizen Data Document</h4>
-                                <h4> وثيقة بيانات المواطن </h4>
+                                <ul class="list-unstyled">
+                                    <li><span>Reference Number</span> <span>2145678933</span></li>
+                                    <li><span>Issue date</span> <span>02/05/2023</span></li>
+                                    <li><span>Issue Sector</span> <span>Lorem ipsum dolor sit.</span></li>
+                                </ul>
+                                <figure>
+                                    <img src="./images/qr-code.png" alt="" width="54px" height="54px" />
+                                </figure>
                             </div>
                         </td>
                         <td>
