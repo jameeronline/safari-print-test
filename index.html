@@ -21,23 +21,14 @@
 
     @media print {
 
-        body {
-            /*background-image: url(images/bg-left.png), url(images/bg-right.png) !important;
-            background-repeat: no-repeat, no-repeat !important;
-            background-position: left top, right top !important;
-            background-attachment: fixed. fixed;
-            background-size: 100%. 100%;*/
-            counter-reset: page 1;
-        }
-
         @page {
             size: portrait;
             margin: 0;
-            background-color: red;
-              @bottom-center {
-                content: counter(page);
-                counter-increment: page;
-              }
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
         }
 
         .container {
@@ -51,7 +42,7 @@
 			color-adjust: exact !important;
 			-webkit-print-color-adjust: exact !important;
         }
-		
+
 
         .print-content table.table {
             page-break-after: auto;
@@ -260,7 +251,7 @@
             content: counter(page);
             color: white !important;
         }
-		
+
 		.hide-print{
 			display: none !important;
 		}
@@ -720,5 +711,5 @@
             </div>
         </div>
     </div>
-</body> 
+</body>
 </html>
