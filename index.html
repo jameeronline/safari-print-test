@@ -2,7 +2,6 @@
 <html lang="en" class="ltr">
 
 <head>
-    <meta name="format-detection" content="telephone=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Test</title>
     <link rel="stylesheet" href="css/cairo-fonts.css" />
@@ -18,6 +17,13 @@
         border-collapse: collapse !important;
 			color-adjust: exact !important;
 			-webkit-print-color-adjust: exact !important;
+    }
+
+    a.disable-tel{
+        color: inherit;
+        text-decoration: none;
+        pointer-events: none;
+        cursor: default;
     }
 
     @media print {
@@ -692,7 +698,7 @@
                             <div class="text-center">
                                 <h4>Citizen Data Document</h4>
                                 <ul class="list-unstyled">
-                                    <li><span>Reference Number</span> <a href="javascript: void(0)">2145678933</a></li>
+                                    <li><span>Reference Number</span> <a href="tel:2145678933">2145678933</a></li>
                                     <li><span>Issue date</span> <span>02/05/2023</span></li>
                                     <li><span>Issue Sector</span> <span>Lorem ipsum dolor sit.</span></li>
                                 </ul>
@@ -720,5 +726,11 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $(".print-container a[href^='tel'], .page-header a[href^='tel']").attr('href', 'javascript: void()').addClass('disable-tel');
+        });
+    </script>
 </body>
 </html>
